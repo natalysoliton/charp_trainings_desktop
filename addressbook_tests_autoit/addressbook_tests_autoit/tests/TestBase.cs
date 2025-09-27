@@ -6,11 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
+
 namespace addressbook_tests_autoit
 {
+    [TestFixture]
     public class TestBase
     {
-        public ApplicationManager app;
+        protected ApplicationManager app;
 
         [OneTimeSetUp]
         public void initApplication() 

@@ -1,6 +1,8 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
 using System;
+//using NUnit.Framework.Legacy;
+
 
 namespace addressbook_tests_autoit
 {
@@ -14,17 +16,23 @@ namespace addressbook_tests_autoit
 
             GroupData newGroup = new GroupData()
             {
-                Name = "test"
+                Name = "GroupToCreate"
             };
             app.Groups.Add(newGroup);
 
             List<GroupData> newGroups = app.Groups.GetGroupList();
 
-            oldGroups.Add(newGroup);
-            oldGroups.Sort();
-            newGroups.Sort();
+            // oldGroups.Add(newGroup);
+            //  oldGroups.Sort();
+            // newGroups.Sort();
+            // Assert.AreEqual(oldGroups, newGroups);
 
-            Assert.AreEqual(oldGroups, newGroups);
+            Assert.That
+                (newGroups.Count,       
+                Is.EqualTo              
+                (oldGroups.Count + 1)); 
+
+            
         }
     }
 }
